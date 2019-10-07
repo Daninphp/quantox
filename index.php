@@ -13,7 +13,10 @@ if(isset($_GET['student'])) {
 		if($student['board'] == "CSM")
 		{
 			$array = array($student['maths'], $student['english'], $student['history'], $student['geography']);
-			$average = array_sum($array) / count($array);
+			$test = array_filter($array);
+			
+			sort($test, SORT_NUMERIC);
+			$average = array_sum($test) / count($test);
 
 			if($average>=7)
 				$result = "Pass";
